@@ -12,15 +12,16 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@emotion/react": "^11.12.0",
-    "@emotion/styled": "^11.12.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
     "@fontsource/poppins": "^5.2.6",
-    "@mui/icons-material": "^5.13.2",
-    "@mui/material": "^5.13.5",
-    "framer-motion": "^7.6.12",
+    "@mui/icons-material": "^5.17.1",
+    "@mui/material": "^5.17.1",
+    "framer-motion": "^7.10.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "react-sparkle": "^2.0.0"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0"
