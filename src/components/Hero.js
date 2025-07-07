@@ -16,7 +16,7 @@ export default function Hero() {
         </a>
       </div>
       <div className="hero__image">
-        <img src="/profile.jpg" alt="Photo of Cristina Fortiz" />
+        <img src="./profile.jpg" alt="Photo of Cristina Fortiz" />
       </div>
     </section>
   );
