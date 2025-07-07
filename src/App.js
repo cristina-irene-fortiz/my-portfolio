@@ -4,6 +4,8 @@ import Hero from './components/Hero';
 import Resume from './components/Resume';
 import Products from './components/Products';
 import Contact from './components/Contact';
+import './App.css';
+
 
 /**
  * Root application component
