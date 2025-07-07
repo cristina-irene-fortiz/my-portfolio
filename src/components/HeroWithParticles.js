@@ -1,4 +1,8 @@
-// src/components/HeroWithSparkles.js  (rename to HeroWithParticles.js)
+// src/components/HeroWithParticles.js
+import React from 'react';
+import ParticleStorm from './ParticleStorm';
+import { Box, Grid, Typography, Button } from '@mui/material';
+
 
 export default function HeroWithParticles() {
   return (
