@@ -64,7 +64,7 @@ export default function HeroWithParticles() {
         <Grid item xs={12} md={6}>
           <Box
             component="img"
-            src="/profile.jpg"
+            src="./profile.jpg"
             alt="Photo of Cristina Fortiz"
             sx={{ width: '100%', borderRadius: 2 }}
           />
