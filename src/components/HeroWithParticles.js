@@ -25,14 +25,33 @@ export default function HeroWithParticles() {
 +     {/* Particle storm overlay */}
 +     <ParticleStorm />
 
-      {/* Actual content sits above z-index 1 */}
-      <Grid
-        container
-        spacing={4}
-        alignItems="center"
-        sx={{ position: 'relative', zIndex: 2 }}
-      >
-        {/* …your Greeting, Title, Button, Image */}
+      {/* Your existing Hero content */}
+      <Grid container spacing={4} alignItems="center" sx={{ position: 'relative', zIndex: 2 }}>
+        <Grid item xs={12} md={6}>
+          <Typography variant="subtitle2" color="primary" gutterBottom>
+            HI!
+          </Typography>
+          <Typography variant="h3" component="h1" gutterBottom>
+            I’m <Box component="span" color="primary">Cristina Fortiz</Box>
+          </Typography>
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            href="#contact"
+            onClick={() => console.log('navigate→#contact')}
+          >
+            Hire Me
+          </Button>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Box
+            component="img"
+            src="/profile.jpg"
+            alt="Cristina Fortiz"
+            sx={{ width: '100%', borderRadius: 2 }}
+          />
+        </Grid>
       </Grid>
     </Box>
   );
