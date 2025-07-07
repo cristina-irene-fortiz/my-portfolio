@@ -5,13 +5,17 @@ import {
   Toolbar,
   Typography,
   IconButton,
+  Box,
   Button,
   Drawer,
   List,
-  ListItemButton,
-  Box
+  ListItemButton
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { useColorMode } from '../App';
+import { useTheme } from '@mui/material/styles';
 
 const navLinks = [
   { href: '#resume', label: 'See Resume' },
@@ -20,6 +24,8 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  const theme = useTheme();
+  const { toggleColorMode } = useColorMode();
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -30,7 +36,7 @@ export default function Navbar() {
             Cristina Irene Fortiz
           </Typography>
 
-          {/* Desktop links */}
+          {/* Desktop nav links */}
           <Box sx={{ display: { xs: 'none', md: 'block' } }}>
             {navLinks.map(({ href, label }) => (
               <Button
@@ -43,6 +49,15 @@ export default function Navbar() {
               </Button>
             ))}
           </Box>
+
+          {/* Theme toggle */}
+          <IconButton onClick={toggleColorMode} color="inherit" sx={{ ml: 1 }}>
+            {theme.palette.mode === 'dark' ? (
+              <Brightness7Icon />
+            ) : (
+              <Brightness4Icon />
+            )}
+          </IconButton>
 
           {/* Mobile menu button */}
           <IconButton

@@ -1,67 +1,66 @@
+// src/components/Contact.js
 import React, { useState } from 'react';
+import {
+  Container,
+  Typography,
+  TextField,
+  Button,
+  Box
+} from '@mui/material';
 
-/**
- * Contact form section.
- */
 export default function Contact() {
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm(f => ({ ...f, [name]: value }));
+    setForm((f) => ({ ...f, [name]: value }));
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(
-      JSON.stringify({ level: 'INFO', action: 'submit_contact', data: form })
-    );
-    // TODO: hook up your email/send endpoint here
+    console.log(JSON.stringify({ level: 'INFO', action: 'submit_contact', data: form }));
     alert('Thanks for your message!');
     setForm({ name: '', email: '', message: '' });
   };
 
   return (
-    <section id="contact" className="content-section">
-      <h2>Contact</h2>
-      <form className="contact-form" onSubmit={handleSubmit}>
-        <label htmlFor="name">Name</label>
-        <input
-          id="name"
+    <Container id="contact" sx={{ py: 8 }}>
+      <Typography variant="h4" gutterBottom>
+        Contact
+      </Typography>
+      <Box
+        component="form"
+        onSubmit={handleSubmit}
+        sx={{ display: 'grid', gap: 2, maxWidth: 600 }}
+      >
+        <TextField
+          label="Name"
           name="name"
           value={form.name}
           onChange={handleChange}
           required
         />
-
-        <label htmlFor="email">Email</label>
-        <input
-          id="email"
-          type="email"
+        <TextField
+          label="Email"
           name="email"
+          type="email"
           value={form.email}
           onChange={handleChange}
           required
         />
-
-        <label htmlFor="message">Message</label>
-        <textarea
-          id="message"
+        <TextField
+          label="Message"
           name="message"
-          rows="5"
+          multiline
+          rows={4}
           value={form.message}
           onChange={handleChange}
           required
         />
-
-        <button type="submit" className="btn">
+        <Button variant="contained" type="submit">
           Send Message
-        </button>
-      </form>
-    </section>
+        </Button>
+      </Box>
+    </Container>
   );
 }

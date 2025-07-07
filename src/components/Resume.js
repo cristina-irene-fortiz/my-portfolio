@@ -1,19 +1,16 @@
+// src/components/Resume.js
 import React from 'react';
+import { Container, Typography, Link } from '@mui/material';
 
-/**
- * Resume download section.
- */
 export default function Resume() {
   return (
-    <section id="resume" className="content-section">
-      <h2>Resume</h2>
-      <a
-        href="/Cristina_Fortiz_Resume.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+    <Container id="resume" sx={{ py: 8 }}>
+      <Typography variant="h4" gutterBottom>
+        Resume
+      </Typography>
+      <Link href="/Cristina_Fortiz_Resume.pdf" target="_blank" underline="hover">
         Download PDF
-      </a>
-    </section>
+      </Link>
+    </Container>
   );
 }
