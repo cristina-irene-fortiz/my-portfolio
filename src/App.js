@@ -7,7 +7,7 @@ import {
   useTheme 
 } from '@mui/material';
 import Navbar from './components/Navbar';
-import Hero from './components/HeroWithSparkles';
+import Hero from './components/HeroWithParticles';
 import Resume from './components/Resume';
 import Products from './components/Products';
 import Contact from './components/Contact';
