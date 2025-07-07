@@ -26,7 +26,7 @@ export default function Hero() {
         <Grid item xs={12} md={6}>
           <Box
             component="img"
-            src="/profile.jpg"
+            src="./profile.jpg"
             alt="Cristina Fortiz"
             sx={{ width: '100%', borderRadius: 2 }}
           />
