@@ -1,59 +1,79 @@
-import React, { useState } from 'react';
+// src/components/Navbar.js
+import React from 'react';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Button,
+  Drawer,
+  List,
+  ListItemButton,
+  Box
+} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 
-/**
- * Navigation bar with mobile toggle.
- */
+const navLinks = [
+  { href: '#resume', label: 'See Resume' },
+  { href: '#products', label: 'Products' },
+  { href: '#contact', label: 'Get in Contact' }
+];
+
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const handleToggle = () => {
-    setMenuOpen(open => !open);
-    console.log(
-      JSON.stringify({
-        level: 'INFO',
-        message: `Mobile menu ${menuOpen ? 'closed' : 'opened'}`
-      })
-    );
-  };
-
-  const handleNavClick = href => {
-    console.log(
-      JSON.stringify({ level: 'INFO', action: 'navigate', to: href })
-    );
-    if (menuOpen) setMenuOpen(false);
-  };
-
-  const links = [
-    { href: '#resume', label: 'See Resume' },
-    { href: '#products', label: 'Products' },
-    { href: '#contact', label: 'Get in Contact' }
-  ];
+  const [open, setOpen] = React.useState(false);
 
   return (
-    <header className="navbar">
-      <div className="navbar__brand">Cristina Irene Fortiz</div>
-      <button
-        className="navbar__toggle"
-        aria-label="Toggle menu"
-        onClick={handleToggle}
-      >
-        <span className="navbar__hamburger" />
-      </button>
-      <ul
-        className={
-          menuOpen
-            ? 'navbar__links navbar__links--active'
-            : 'navbar__links'
-        }
-      >
-        {links.map(link => (
-          <li key={link.href}>
-            <a href={link.href} onClick={() => handleNavClick(link.href)}>
-              {link.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </header>
+    <>
+      <AppBar position="sticky" color="secondary">
+        <Toolbar>
+          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+            Cristina Irene Fortiz
+          </Typography>
+
+          {/* Desktop links */}
+          <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+            {navLinks.map(({ href, label }) => (
+              <Button
+                key={href}
+                color="inherit"
+                href={href}
+                onClick={() => console.log(`navigate→${href}`)}
+              >
+                {label}
+              </Button>
+            ))}
+          </Box>
+
+          {/* Mobile menu button */}
+          <IconButton
+            edge="end"
+            color="inherit"
+            sx={{ display: { md: 'none' } }}
+            onClick={() => setOpen(true)}
+          >
+            <MenuIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+
+      {/* Mobile drawer */}
+      <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
+        <List sx={{ width: 250 }}>
+          {navLinks.map(({ href, label }) => (
+            <ListItemButton
+              key={href}
+              component="a"
+              href={href}
+              onClick={() => {
+                console.log(`navigate→${href}`);
+                setOpen(false);
+              }}
+            >
+              {label}
+            </ListItemButton>
+          ))}
+        </List>
+      </Drawer>
+    </>
   );
 }

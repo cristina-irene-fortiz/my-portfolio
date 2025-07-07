@@ -1,23 +1,37 @@
+// src/components/Hero.js
 import React from 'react';
+import { Box, Grid, Typography, Button } from '@mui/material';
 
-/**
- * Hero / introduction section.
- */
 export default function Hero() {
   return (
-    <section className="hero">
-      <div className="hero__content">
-        <p className="hero__greeting">HI!</p>
-        <h1 className="hero__title">
-          I’m <span className="highlight">Cristina Fortiz</span>
-        </h1>
-        <a href="#contact" className="btn btn--primary">
-          Hire Me
-        </a>
-      </div>
-      <div className="hero__image">
-        <img src="./profile.jpg" alt="Photo of Cristina Fortiz" />
-      </div>
-    </section>
+    <Box component="section" sx={{ py: 8, px: 2 }}>
+      <Grid container spacing={4} alignItems="center">
+        <Grid item xs={12} md={6}>
+          <Typography variant="subtitle2" color="primary" gutterBottom>
+            HI!
+          </Typography>
+          <Typography variant="h3" component="h1" gutterBottom>
+            I’m <Box component="span" color="primary">Cristina Fortiz</Box>
+          </Typography>
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            href="#contact"
+            onClick={() => console.log('navigate→#contact')}
+          >
+            Hire Me
+          </Button>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Box
+            component="img"
+            src="/profile.jpg"
+            alt="Cristina Fortiz"
+            sx={{ width: '100%', borderRadius: 2 }}
+          />
+        </Grid>
+      </Grid>
+    </Box>
   );
 }
