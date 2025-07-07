@@ -1,9 +1,7 @@
-// src/components/HeroWithParticles.js
 import React from 'react';
 import Sparkles from 'react-sparkle';
 import ParticleStorm from './ParticleStorm';
 import { Box, Grid, Typography, Button } from '@mui/material';
-
 
 export default function HeroWithParticles() {
   return (
@@ -16,22 +14,36 @@ export default function HeroWithParticles() {
         px: { xs: 2, md: 8 }
       }}
     >
-      {/* Sparkles overlay */}
+      {/* Random twinkles */}
       <Sparkles
-        color="#ff41b5"        // your pink
-        count={30}             // how many at once
+        color="#ff41b5"
+        count={30}
         minSize={8}
         maxSize={16}
         fadeOutSpeed={20}
-        flicker={true}
-        overflowPx={50}        // allow them to drift a bit outside
-        style={{ zIndex: 1 }}  // make sure they sit *above* background but *below* text
+        flicker
+        overflowPx={50}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 1,
+          pointerEvents: 'none'
+        }}
       />
-+     {/* Particle storm overlay */}
-+     <ParticleStorm />
 
-      {/* Your existing Hero content */}
-      <Grid container spacing={4} alignItems="center" sx={{ position: 'relative', zIndex: 2 }}>
+      {/* Swirling particle storm */}
+      <ParticleStorm />
+
+      {/* Main content above effects */}
+      <Grid
+        container
+        spacing={4}
+        alignItems="center"
+        sx={{ position: 'relative', zIndex: 2 }}
+      >
         <Grid item xs={12} md={6}>
           <Typography variant="subtitle2" color="primary" gutterBottom>
             HI!
@@ -53,7 +65,7 @@ export default function HeroWithParticles() {
           <Box
             component="img"
             src="/profile.jpg"
-            alt="Cristina Fortiz"
+            alt="Photo of Cristina Fortiz"
             sx={{ width: '100%', borderRadius: 2 }}
           />
         </Grid>
