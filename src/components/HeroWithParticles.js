@@ -1,5 +1,6 @@
 // src/components/HeroWithParticles.js
 import React from 'react';
+import Sparkles from 'react-sparkle';
 import ParticleStorm from './ParticleStorm';
 import { Box, Grid, Typography, Button } from '@mui/material';
 
