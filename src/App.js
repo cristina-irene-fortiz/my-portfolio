@@ -63,7 +63,7 @@ export default function App() {
         <Navbar />
 
         <main>
-          {[Hero, Resume, ProjectsCarousel, MLDemo, Contact].map((Section, idx) => (
+          {[Hero, Resume, ProjectsCarousel, Contact].map((Section, idx) => (
               <AnimatePresence key={idx}>
               <motion.div
                 initial="hidden"
