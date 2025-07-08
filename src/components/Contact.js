@@ -9,8 +9,7 @@ import {
 } from '@mui/material';
 
 /**
- * Contact form section.
- * The form is centered and styled with MUI.
+ * Contact form that opens the user’s email client via mailto:
  */
 export default function Contact() {
   const [form, setForm] = useState({
@@ -26,11 +25,13 @@ export default function Contact() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(
-      JSON.stringify({ level: 'INFO', action: 'submit_contact', data: form })
+    const { name, email, message } = form;
+    const subject = encodeURIComponent(`Contact from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\n${message}`
     );
-    alert('Thanks for your message!');
-    setForm({ name: '', email: '', message: '' });
+    // Replace with your actual email address:
+    window.location.href = `mailto:your.email@example.com?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -46,7 +47,7 @@ export default function Contact() {
           display: 'grid',
           gap: 2,
           maxWidth: 600,
-          mx: 'auto'            /* centers the form */
+          mx: 'auto'  /* center the form */
         }}
       >
         <TextField
