@@ -1,4 +1,3 @@
-// src/components/ScrollProgress.js
 import React, { useState, useEffect } from 'react';
 import { LinearProgress } from '@mui/material';
 
