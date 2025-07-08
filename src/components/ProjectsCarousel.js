@@ -2,15 +2,12 @@
 import React from 'react';
 import { Container, Typography, Card, CardActionArea, CardMedia, CardContent } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';  // ← Fix!
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import products from '../data/products'; // your existing array
+import products from '../data/products';
 
-/**
- * Interactive, swipeable carousel of your products/projects.
- */
 export default function ProjectsCarousel() {
   return (
     <Container id="projects" sx={{ py: 8 }}>
