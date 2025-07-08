@@ -1,3 +1,4 @@
+// src/components/HeroWithParticles.js
 import React from 'react';
 import Sparkles from 'react-sparkle';
 import ParticleStorm from './ParticleStorm';
@@ -10,11 +11,15 @@ export default function HeroWithParticles() {
       sx={{
         position: 'relative',
         overflow: 'hidden',
-        py: { xs: 6, md: 12 },
-        px: { xs: 2, md: 8 }
+        // give yourself plenty of vertical breathing room
+        minHeight: { xs: 'auto', md: '80vh' },
+        py: { xs: 6, md: 0 },
+        px: { xs: 2, md: 8 },
+        display: 'flex',
+        alignItems: 'flex-end'
       }}
     >
-      {/* Random twinkles */}
+      {/* background effects */}
       <Sparkles
         color="#ff41b5"
         count={30}
@@ -33,17 +38,35 @@ export default function HeroWithParticles() {
           pointerEvents: 'none'
         }}
       />
-
-      {/* Swirling particle storm */}
       <ParticleStorm />
 
-      {/* Main content above effects */}
+      {/* content + image */}
       <Grid
         container
         spacing={4}
-        alignItems="center"
+        alignItems="flex-end"            // bottom-align both items
+        justifyContent="space-between"  // push to edges
         sx={{ position: 'relative', zIndex: 2 }}
+        direction={{ xs: 'column', md: 'row-reverse' }} // text on right on desktop
       >
+        {/* IMAGE */}
+        <Grid item xs={12} md={5}>
+          <Box
+            component="img"
+            src="/profile.jpg"
+            alt="Cristina Fortiz"
+            sx={{
+              width: '100%',
+              maxWidth: 350,           // cap the width
+              height: 'auto',
+              display: 'block',
+              borderRadius: 2,
+              alignSelf: 'flex-end'    // reinforce bottom align
+            }}
+          />
+        </Grid>
+
+        {/* TEXT + BUTTON */}
         <Grid item xs={12} md={6}>
           <Typography variant="subtitle2" color="primary" gutterBottom>
             HI!
@@ -60,14 +83,6 @@ export default function HeroWithParticles() {
           >
             Hire Me
           </Button>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Box
-            component="img"
-            src="./profile.jpg"
-            alt="Photo of Cristina Fortiz"
-            sx={{ width: '100%', borderRadius: 2 }}
-          />
         </Grid>
       </Grid>
     </Box>
