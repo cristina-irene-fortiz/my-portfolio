@@ -9,7 +9,7 @@ import Navbar from './components/Navbar';
 import ScrollProgress from './components/ScrollProgress';
 import Hero from './components/HeroWithParticles';
 import Resume from './components/Resume';
-import Products from './components/Products';
+import ProjectsCarousel from './components/ProjectsCarousel';
 import Contact from './components/Contact';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -63,8 +63,8 @@ export default function App() {
         <Navbar />
 
         <main>
-          {[Hero, Resume, Products, Contact].map((Section, idx) => (
-            <AnimatePresence key={idx}>
+          {[Hero, Resume, ProjectsCarousel, MLDemo, Contact].map((Section, idx) => (
+              <AnimatePresence key={idx}>
               <motion.div
                 initial="hidden"
                 whileInView="visible"
