@@ -8,30 +8,46 @@ import {
   Box
 } from '@mui/material';
 
+/**
+ * Contact form section.
+ * The form is centered and styled with MUI.
+ */
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { name, value } = e.target;
-    setForm((f) => ({ ...f, [name]: value }));
+    setForm(f => ({ ...f, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
-    console.log(JSON.stringify({ level: 'INFO', action: 'submit_contact', data: form }));
+    console.log(
+      JSON.stringify({ level: 'INFO', action: 'submit_contact', data: form })
+    );
     alert('Thanks for your message!');
     setForm({ name: '', email: '', message: '' });
   };
 
   return (
     <Container id="contact" sx={{ py: 8 }}>
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" align="center" gutterBottom>
         Contact
       </Typography>
+
       <Box
         component="form"
         onSubmit={handleSubmit}
-        sx={{ display: 'grid', gap: 2, maxWidth: 600 }}
+        sx={{
+          display: 'grid',
+          gap: 2,
+          maxWidth: 600,
+          mx: 'auto'            /* centers the form */
+        }}
       >
         <TextField
           label="Name"
@@ -40,6 +56,7 @@ export default function Contact() {
           onChange={handleChange}
           required
         />
+
         <TextField
           label="Email"
           name="email"
@@ -48,6 +65,7 @@ export default function Contact() {
           onChange={handleChange}
           required
         />
+
         <TextField
           label="Message"
           name="message"
@@ -57,7 +75,8 @@ export default function Contact() {
           onChange={handleChange}
           required
         />
-        <Button variant="contained" type="submit">
+
+        <Button variant="contained" type="submit" size="large">
           Send Message
         </Button>
       </Box>
