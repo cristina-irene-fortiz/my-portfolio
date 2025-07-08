@@ -1,5 +1,5 @@
 // src/components/Navbar.js
-import React from 'react';
+import React, { useState } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -26,15 +26,24 @@ const navLinks = [
 export default function Navbar() {
   const theme = useTheme();
   const { toggleColorMode } = useColorMode();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <>
       <AppBar position="sticky" color="secondary">
         <Toolbar>
-          <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            Cristina Irene Fortiz
-          </Typography>
+          {/* Logo + Brand */}
+          <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
+            <Box
+              component="img"
+              src="/favicon.ico"
+              alt="Logo"
+              sx={{ width: 32, height: 32, mr: 1 }}
+            />
+            <Typography variant="h6">
+              Cristina Irene Fortiz
+            </Typography>
+          </Box>
 
           {/* Desktop nav links */}
           <Box sx={{ display: { xs: 'none', md: 'block' } }}>
@@ -52,11 +61,7 @@ export default function Navbar() {
 
           {/* Theme toggle */}
           <IconButton onClick={toggleColorMode} color="inherit" sx={{ ml: 1 }}>
-            {theme.palette.mode === 'dark' ? (
-              <Brightness7Icon />
-            ) : (
-              <Brightness4Icon />
-            )}
+            {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
           </IconButton>
 
           {/* Mobile menu button */}
