@@ -106,7 +106,7 @@ export default function HeroWithParticles() {
           <Grid item xs={12} md={5}>
             <Box
               component={motion.img}
-              src="/profile.jpg"
+              src="./profile.jpg"
               alt="Cristina Fortiz"
               variants={imageVariant}
               initial="hidden"
