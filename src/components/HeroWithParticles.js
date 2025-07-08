@@ -119,7 +119,7 @@ export default function HeroWithParticles() {
               variants={imageVariant}
               sx={{
                 width: '100%',
-                maxWidth: 550,
+                maxWidth: 575,
                 borderRadius: 2,
                 display: 'block',
                 mx: { xs: 'auto', md: 0 }
