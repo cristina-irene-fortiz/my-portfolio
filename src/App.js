@@ -1,10 +1,10 @@
-// src/App.js
+// src/App.js (or wherever you create your theme)
+
 import React, { useState, useMemo, createContext, useContext } from 'react';
-import { 
-  ThemeProvider, 
-  createTheme, 
-  CssBaseline, 
-  useTheme 
+import {
+  ThemeProvider,
+  createTheme,
+  CssBaseline
 } from '@mui/material';
 import Navbar from './components/Navbar';
 import Hero from './components/HeroWithParticles';
@@ -13,17 +13,12 @@ import Products from './components/Products';
 import Contact from './components/Contact';
 import { motion, AnimatePresence } from 'framer-motion';
 
-/**
- * Context to expose toggleColorMode()
- */
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
 export default function App() {
   const [mode, setMode] = useState('light');
   const colorMode = useMemo(
-    () => ({
-      toggleColorMode: () => setMode((prev) => (prev === 'light' ? 'dark' : 'light'))
-    }),
+    () => ({ toggleColorMode: () => setMode(m => (m === 'light' ? 'dark' : 'light')) }),
     []
   );
 
@@ -39,12 +34,21 @@ export default function App() {
           fontFamily: 'Poppins, sans-serif',
           h4: { fontWeight: 600 },
           button: { textTransform: 'none', fontWeight: 600 }
+        },
+        components: {
+          MuiCssBaseline: {
+            styleOverrides: {
+              body: {
+                // animate background and text color
+                transition: 'background-color 0.5s ease, color 0.5s ease'
+              }
+            }
+          }
         }
       }),
     [mode]
   );
 
-  // Simple fade-up variants for all sections
   const sectionVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
@@ -53,6 +57,7 @@ export default function App() {
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
+        {/* CssBaseline will now include our body transition */}
         <CssBaseline />
 
         <Navbar />
@@ -76,5 +81,4 @@ export default function App() {
   );
 }
 
-// Custom hook to grab toggle from context
 export const useColorMode = () => useContext(ColorModeContext);
