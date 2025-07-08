@@ -32,7 +32,7 @@ export default function Resume() {
         mb: 2 
       }}>
         <Document
-          file="/Cristina_Fortiz_Resume.pdf"
+          file="./cfresume.pdf"
           onLoadSuccess={onDocumentLoadSuccess}
         >
           {Array.from({ length: numPages }, (_, i) => (
@@ -49,7 +49,7 @@ export default function Resume() {
         Scroll to view all pages, or{' '}
         <Box
           component="a"
-          href="/Cristina_Fortiz_Resume.pdf"
+          href="./cfresume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           sx={{ textDecoration: 'underline' }}
