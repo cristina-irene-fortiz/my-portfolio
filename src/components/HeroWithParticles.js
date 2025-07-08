@@ -108,7 +108,7 @@ export default function HeroWithParticles() {
           </Grid>
 
           {/* Larger animated portrait */}
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} md={7}>
             <Box
               component={motion.img}
               src="./profile.jpg"
@@ -119,7 +119,7 @@ export default function HeroWithParticles() {
               variants={imageVariant}
               sx={{
                 width: '100%',
-                maxWidth: 450,
+                maxWidth: 550,
                 borderRadius: 2,
                 display: 'block',
                 mx: { xs: 'auto', md: 0 }
