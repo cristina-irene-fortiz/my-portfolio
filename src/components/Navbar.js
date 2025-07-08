@@ -36,7 +36,7 @@ export default function Navbar() {
           <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
             <Box
               component="img"
-              src="/favicon.ico"
+              src="./output.ico"
               alt="Logo"
               sx={{ width: 32, height: 32, mr: 1 }}
             />
