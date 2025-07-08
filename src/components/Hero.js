@@ -11,7 +11,7 @@ export default function Hero() {
             HI!
           </Typography>
           <Typography variant="h3" component="h1" gutterBottom>
-            I’m <Box component="span" color="primary">Cristina Fortiz</Box>
+            I’m <Box component="span" color="primary">Cristina</Box>
           </Typography>
           <Button
             variant="contained"
