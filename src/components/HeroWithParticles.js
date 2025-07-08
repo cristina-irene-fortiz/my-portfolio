@@ -116,7 +116,7 @@ export default function HeroWithParticles() {
               animate="visible"
               sx={{
                 width: '100%',
-                maxWidth: 300,
+                maxWidth: { xs: '80%', md: 400 },   // bump this up
                 borderRadius: 2,
                 display: 'block',
                 mx: { xs: 'auto', md: 0 }
