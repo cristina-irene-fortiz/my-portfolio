@@ -7,6 +7,7 @@ import {
   CssBaseline
 } from '@mui/material';
 import Navbar from './components/Navbar';
+import ScrollProgress from './components/ScrollProgress';
 import Hero from './components/HeroWithParticles';
 import Resume from './components/Resume';
 import Products from './components/Products';
@@ -59,7 +60,7 @@ export default function App() {
       <ThemeProvider theme={theme}>
         {/* CssBaseline will now include our body transition */}
         <CssBaseline />
-
+        <ScrollProgress />
         <Navbar />
 
         <main>

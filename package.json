@@ -20,6 +20,8 @@
     "framer-motion": "^7.10.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-parallax-tilt": "^1.7.300",
+    "react-pdf": "^10.0.1",
     "react-scripts": "5.0.1",
     "react-sparkle": "^2.0.0",
     "react-tsparticles": "^2.0.6",

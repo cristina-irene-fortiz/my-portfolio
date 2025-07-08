@@ -1,3 +1,8 @@
+/* Smooth native scroll for your nav links */
+html {
+  scroll-behavior: smooth;
+}
+
 /* ─── Variables & Reset ───────────────────────────────────────────────────── */
 :root {
   --pink: #ff41b5;
